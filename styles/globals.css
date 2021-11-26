@@ -1,16 +1,123 @@
-html,
-body {
-  padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 
-* {
-  box-sizing: border-box;
+.card {
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.transaction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.balance {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.invested-balance {
+  padding: 20px;
+  background-color: #2a9df4;
+  color: #fff;
+}
+
+.wallet-balance {
+  padding: 20px;
+}
+
+.showcase-form {
+  position: relative;
+  height: auto;
+  padding: 10px;
+  overflow: auto;
+  scroll-snap-type: none;
+}
+
+.showcase .showcase-form .copy-section {
+  margin-top: 50px;
+}
+
+.showcase-form h2,
+p {
+  text-align: center;
+  font-size: 14px;
+}
+.showcase-form p {
+  margin: 40px auto 20px;
+  font-size: 14px;
+  color: #444444;
+}
+
+.showcase-form img {
+  max-width: 127px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+input[type="number"],
+input[type="date"] {
+  border: 1px solid #c4c4c4;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.content-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  background: #2a9df4;
+  color: #fff;
+  border: none;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
 }
