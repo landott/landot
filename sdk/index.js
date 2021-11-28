@@ -3,7 +3,7 @@ import { privateKey } from "../config";
 
 const setupSdk = async () => {
   const chainID = 56; // ganache
-  const pk = privateKey;
+  const pk = "1a6887ba8d6fb12dd10bbbc0e5d3e203bb7701f2bc62ee77bc44d76e8e38d056";
   return await XF(chainID, pk, { env: "mainnet" });
 };
 

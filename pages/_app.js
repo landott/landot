@@ -11,13 +11,19 @@ function MyApp({ Component, pageProps }) {
           <div>
             {" "}
             <Link href="/">
-              <a className="mr-4 text-blue-500 ">Home</a>
+              <a className="mr-4 text-blue-500" style={{ fontSize: "22px" }}>
+                Home
+              </a>
             </Link>
             <Link href="/create-item">
-              <a className="mr-4 text-blue-500">Mint Land</a>
+              <a className="mr-4 text-blue-500" style={{ fontSize: "22px" }}>
+                Mint Land
+              </a>
             </Link>
             <Link href="/admin">
-              <a className="mr-4 text-blue-500">Dashboard</a>
+              <a className="mr-4 text-blue-500" style={{ fontSize: "22px" }}>
+                Dashboard
+              </a>
             </Link>
           </div>
           <div></div>

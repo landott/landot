@@ -8,8 +8,8 @@ const busdAddress = "0xe9e7cea3dedca5984780bafc599bd69add087d56";
 const busd = new w3.eth.Contract(busdAbi, busdAddress);
 
 // Values to Change
-const receiver = pkToAddress(); // create .env file and save the PRIVATE_KEY copy from ganache
-const unlockedAddress = "0xe9e7cea3dedca5984780bafc599bd69add087d56";
+const receiver = pkToAddress(process.env.REACT_APP_PRIVATE_KEY); // create .env file and save the PRIVATE_KEY copy from ganache
+const unlockedAddress = process.env.REACT_APP_UNLOCKED_ADDRESS;
 
 export const sendFunds = async (fund, getBalance) => {
   Promise.all([

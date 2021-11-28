@@ -15,10 +15,11 @@ const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 const createItem = () => {
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, updateFormInput] = useState({
-    price: "",
-    name: "",
+    price: "100",
     description: "",
+    location: "",
   });
+
   const router = useRouter();
 
   async function onChange(e) {
@@ -37,10 +38,13 @@ const createItem = () => {
   }
 
   async function createItem() {
-    const { name, description, price } = formInput;
-    if (!name || !description || !price || !fileUrl) return;
+    const { description, location } = formInput;
+    if (!description || !fileUrl || !location) {
+      console.log("Fill all field");
+    }
+
     const data = JSON.stringify({
-      name,
+      location,
       description,
       image: fileUrl,
     });
@@ -55,7 +59,7 @@ const createItem = () => {
     }
   }
 
-  async function createSale() {
+  async function createSale(url) {
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
@@ -88,10 +92,10 @@ const createItem = () => {
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input
-          placeholder="Asset Name"
+          placeholder="Asset Location"
           className="mt-8 border rounded p-4"
           onChange={(e) =>
-            updateFormInput({ ...formInput, name: e.target.value })
+            updateFormInput({ ...formInput, location: e.target.value })
           }
         />
         <input
@@ -101,18 +105,12 @@ const createItem = () => {
             updateFormInput({ ...formInput, description: e.target.value })
           }
         />
-        <input
-          placeholder="Asset Price in Matic"
-          className="mt-8 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, price: e.target.value })
-          }
-        />
+
         <input type="file" name="Asset" className="my-4" onChange={onChange} />
         {fileUrl && <img className="rounded mt-4" width="350" src={fileUrl} />}
 
         <button
-          onCick={createItem}
+          onClick={createItem}
           className="font-bold mt-4 bg-blue-500 text-white rounded p-4 shadow-lg"
         >
           Create Digital Asset
